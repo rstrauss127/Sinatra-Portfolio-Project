@@ -16,5 +16,5 @@ CLASSES
     num_in_party
 
 
-  Vaction
+  Unit-guest/Vaction
     guest_id JOIN unit_id
