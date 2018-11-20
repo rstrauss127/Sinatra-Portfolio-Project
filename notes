@@ -1,0 +1,20 @@
+CLASSES
+  Owner
+    name
+    unit_number
+    unit_capacity
+    contact_info
+        -has_one(many) unit
+        -has_many guests through unit
+  Unit
+    unit_number
+    owners
+        -has_many guests
+        -belongs_to owner
+  Party
+    name
+    num_in_party
+
+
+  Vaction
+    guest_id JOIN unit_id
