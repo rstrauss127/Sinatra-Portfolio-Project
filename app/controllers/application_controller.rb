@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
   end
 
   get '/' do
-    "Hello World"
+    "Welcome to our Vacation rental site. If you own a vacation property and would like to list it, click here___.
+    If you would like to sign up to see available vacations, click here_____"
   end
-
 end
