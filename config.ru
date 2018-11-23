@@ -1,5 +1,5 @@
 require_relative './config/environment'
-require_relative 'app/controllers/condos/condos_controller'
+
 
 require './config/environment'
 require 'sinatra'
@@ -9,5 +9,4 @@ if ActiveRecord::Base.connection.migration_context.needs_migration?
 end
 
 use Rack::MethodOverride
-use CondosController
 run ApplicationController
