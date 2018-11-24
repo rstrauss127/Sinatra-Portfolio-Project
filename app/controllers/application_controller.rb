@@ -13,19 +13,5 @@ class ApplicationController < Sinatra::Base
   end
 
 
-  get '/signup' do
-    erb :signup
-  end
 
-  post '/signup' do
-
-  end
-
-  get '/condos' do
-    "Condos Index"
-  end
-
-  get '/condos/new' do
-    erb :"/condos/new"
-  end
 end
