@@ -12,6 +12,15 @@ class ApplicationController < Sinatra::Base
     If you would like to sign up to see available vacations, click here_____"
   end
 
+
+  get '/signup' do
+    erb :signup
+  end
+
+  post '/signup' do
+    
+  end
+
   get '/condos' do
     "Condos Index"
   end
