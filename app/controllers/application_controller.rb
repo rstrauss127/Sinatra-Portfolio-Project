@@ -12,6 +12,11 @@ class ApplicationController < Sinatra::Base
     If you would like to sign up to see available vacations, click here_____"
   end
 
+  helpers do
 
+    def logged_in?
+      !!session[:email]
+    end
+  end
 
 end
