@@ -19,7 +19,14 @@ class ApplicationController < Sinatra::Base
     end
 
     def login(email)
-      #IS the user who they claim to be
+      if user = User.find_by(:email => email)
+        session[:email] = user.email
+      else
+        redirect '/login'
+      end
+      #check if a user with this email actually exists
+      #if so, set the session
+      #otherwise, return false or redirext '/login'
       session[:email] = email
     end
 
