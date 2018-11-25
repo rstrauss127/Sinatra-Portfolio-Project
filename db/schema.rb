@@ -10,24 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 4) do
-
-  create_table "condos", force: :cascade do |t|
-    t.string "name"
-    t.integer "owner_id"
-  end
-
-  create_table "guests", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "owners", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "vacations", force: :cascade do |t|
-    t.integer "guest_id"
-    t.integer "condo_id"
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end
