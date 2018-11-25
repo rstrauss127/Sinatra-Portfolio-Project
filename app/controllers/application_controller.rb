@@ -15,7 +15,7 @@ class ApplicationController < Sinatra::Base
   helpers do
 
     def logged_in?
-      !!session[:email]
+      !!current_user
     end
 
     def login(email, password)
@@ -28,11 +28,14 @@ class ApplicationController < Sinatra::Base
       #check if a user with this email actually exists
       #if so, set the session
       #otherwise, return false or redirext '/login'
-
     end
 
     def logout!
       session.clear
+    end
+
+    def current_user
+      @current_user ||= User.find_by(:email => session[:email]) if session[:email]
     end
   end
 
