@@ -4,6 +4,7 @@
     POST /users #=> to actually create the user
   Database
     I need a users table to store their email and password(ignore)
+
 2. I need to give users passwords
 3. Then make sure that I can find a user with their actual password
 4. change login system to use their email and password to authenticate
