@@ -13,11 +13,9 @@ Specs:
         created user account with unique email & password
 - [ ] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
 - [x] Ensure that users can't modify content created by other users
-        if post = current_user.posts.find_by(params[:id])    
-          "An edit post form #{current_user.id} is editing #{post.id}"  
-        else
-          redirect '/posts'
-- [ ] Include user input validations
+        if post = current_user.posts.find_by(params[:id]) 
+- [x] Include user input validations
+        User can't sign up without email & password
 - [ ] BONUS - not required - Display validation failures to user with error message (example form URL e.g. /posts/new)
 - [ ] Your README.md includes a short description, install instructions, a contributors guide and a link to the license for your code
 
