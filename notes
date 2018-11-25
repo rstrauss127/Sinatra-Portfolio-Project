@@ -8,3 +8,9 @@
 2. I need to give users passwords
 3. Then make sure that I can find a user with their actual password
 4. change login system to use their email and password to authenticate
+
+
+
+1. build user registration process(sign up form and singup creation)
+2. give posts to users
+3. only let them edit their own posts
