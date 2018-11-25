@@ -9,7 +9,7 @@ class PostsController < ApplicationController
     if !logged_in?
       redirect "/login" #redirect if not
     else
-      "A new post form" #rendering if they are
+      erb :"/posts/new" #rendering if they are
     end
   end
 
