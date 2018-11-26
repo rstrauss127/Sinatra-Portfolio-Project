@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  get '/posts' do
+  get '/posts' do #show all posts???
     "You are logged in as #{session[:email]}"
   end
 
@@ -9,8 +9,15 @@ class PostsController < ApplicationController
     if !logged_in?
       redirect "/login" #redirect if not
     else
-      erb :"/posts/new" #rendering if they are
+      erb :"/posts/new" #render new post form if they are logged in
     end
+  end
+
+  post '/posts' do
+    @post = Post.create(params)
+    @post.user_id = current_user.id
+    @post.save
+    puts params
   end
 
   get '/posts/:id/edit' do
