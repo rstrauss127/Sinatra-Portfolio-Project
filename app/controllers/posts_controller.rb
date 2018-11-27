@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
 
   get '/posts' do #show all posts???
-    "You are logged in as #{session[:email]}"
+    @posts = Post.all
+    erb :"/posts/index"
   end
 
   get '/posts/new' do
