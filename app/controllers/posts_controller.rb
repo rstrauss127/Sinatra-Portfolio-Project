@@ -2,7 +2,7 @@ class PostsController < ApplicationController
 
   get '/posts' do #show all posts???
     @posts = Post.all
-    erb :"/posts/index"
+    erb :"/posts/show"
   end
 
   get '/posts/new' do
