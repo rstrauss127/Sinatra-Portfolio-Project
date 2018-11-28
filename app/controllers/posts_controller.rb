@@ -1,8 +1,8 @@
 class PostsController < ApplicationController
 
-  get '/posts' do #show all posts???
+  get '/posts' do #show all
     @posts = Post.all
-    erb :"/posts/show"
+    erb :"/posts/index"
   end
 
   get '/posts/new' do
@@ -19,6 +19,11 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     @post.save
     puts params
+  end
+
+  get '/posts/:id' do
+    @post = Post.find_by_id(params[:id])
+    erb :"posts/show"
   end
 
   get '/posts/:id/edit' do
