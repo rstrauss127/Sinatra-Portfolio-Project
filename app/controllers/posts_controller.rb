@@ -1,11 +1,11 @@
 class PostsController < ApplicationController
 
-  get '/posts' do #posts index action 
+  get '/posts' do #posts index action
     @posts = Post.all
     erb :"/posts/index"
   end
 
-  get '/posts/new' do
+  get '/posts/new' do#new
     if !logged_in?#checking if logged in
       redirect "/login" #redirect if not
     else
@@ -13,10 +13,11 @@ class PostsController < ApplicationController
     end
   end
 
-  post '/posts' do
+  post '/posts' do#create
     @post = Post.create(params)
     @post.user_id = current_user.id
     @post.save
+    redirect "posts/#{@post.id}"
     puts params
   end
 
