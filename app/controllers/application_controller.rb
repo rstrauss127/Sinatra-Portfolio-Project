@@ -11,6 +11,7 @@ class ApplicationController < Sinatra::Base
     erb :"sessions/index"
   end
 
+
   helpers do
 
     def logged_in?
@@ -19,14 +20,11 @@ class ApplicationController < Sinatra::Base
 
     def login(email, password)
       user = User.find_by(:email => email)
-      if user && user.authenticate(password)
-        session[:email] = user.email
+      if user && user.authenticate(password)  #check if a user with this email actually exists and we can autheticate this user witht his password
+        session[:email] = user.email      #if so, set the session
       else
-        redirect '/login'
+        redirect '/login'#otherwise, return false or redirext '/login'
       end
-      #check if a user with this email actually exists
-      #if so, set the session
-      #otherwise, return false or redirext '/login'
     end
 
     def logout!
@@ -36,6 +34,7 @@ class ApplicationController < Sinatra::Base
     def current_user
       @current_user ||= User.find_by(:email => session[:email]) if session[:email]
     end
-  end
+
+  end#end of helper methods
 
 end

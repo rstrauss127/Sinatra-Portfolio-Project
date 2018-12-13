@@ -6,8 +6,7 @@ class PostsController < ApplicationController
   end
 
   get '/posts/new' do
-    #checking if logged in
-    if !logged_in?
+    if !logged_in?#checking if logged in
       redirect "/login" #redirect if not
     else
       erb :"/posts/new" #render new post form if they are logged in
@@ -27,11 +26,10 @@ class PostsController < ApplicationController
   end
 
   get '/posts/:id/edit' do
-    #checking if logged in
-    if !logged_in?
+    if !logged_in?#checking if logged in
       redirect "/login" #redirect if not
     else
-      if post = current_user.posts.find_by(params[:id])      #only get posts the user is allowed to edit
+      if post = current_user.posts.find_by(params[:id])#only edit posts the user has authored
         "An edit post form #{current_user.id} is editing #{post.id}"  #rendering if they are
       else
         redirect '/posts'
