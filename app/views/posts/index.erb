@@ -1,6 +1,9 @@
+<h1>Vacation Listings</h1>
+
 <% @posts.each do |post| %>
   <p>Post Title: <%= post.title %> </p>
   <p>Post Content: <%= post.content %> </p>
-  <p>Link: <a href="/posts/<%= post.id %>">View<%= post.title %></a></p>
+  <p>Link: <a href="/posts/<%= post.id %>">View <%= post.title %></a></p>
 <% end %>
-<h1>Vacation Listings</h1>
+
+<a href="/posts/new">Create a new listing</a>
