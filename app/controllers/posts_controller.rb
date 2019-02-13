@@ -47,5 +47,10 @@ class PostsController < ApplicationController
     redirect to "/posts/#{@post.id}"
   end
 
+  delete '/posts/:id/delete' do
+    @post = Post.find_by_id(params[:id])
+    @post.delete
 
+    erb :"posts/delete" #need to make page
+  end
 end
