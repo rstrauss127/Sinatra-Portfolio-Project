@@ -47,10 +47,18 @@ class PostsController < ApplicationController
     redirect to "/posts/#{@post.id}"
   end
 
-  delete '/posts/:id/delete' do
-    @post = Post.find_by_id(params[:id])
-    @post.delete
 
-    erb :"posts/delete" #need to make page
+  delete '/posts/:id/delete' do
+    if !logged_in?#checking if logged in
+      redirect "/login" #redirect if not
+    else
+      if post = current_user.posts.find_by(params[:id])#only edit posts the user has authored
+        @post = Post.find_by_id(params[:id])
+        @post.delete
+        erb :"/posts"  #rendering if they are
+      else
+        redirect '/posts'
+      end
+    end
   end
 end
