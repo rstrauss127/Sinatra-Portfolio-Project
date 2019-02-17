@@ -13,4 +13,5 @@ use Rack::MethodOverride#mount controller
 use PostsController
 use UsersController
 use SessionsController
+use MessagesController
 run ApplicationController
