@@ -5,7 +5,11 @@ class MessagesController < ApplicationController
   end
 
   get '/messages/new' do
-    #create a new message
+    if !logged_in?#checking if logged in
+      redirect "/login" #redirect if not
+    else
+      erb :"/messages/new" #render new message form if they are logged in
+    end
   end
 
   post '/messages/new' do
