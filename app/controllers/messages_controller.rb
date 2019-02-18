@@ -5,9 +5,12 @@ class MessagesController < ApplicationController
   end
 
   post '/messages' do
-    @messages = Messages.create(params)
-    @messages.sender = current_user.id
-    @messages.recipent
+    @message = Message.create(params)
+
+    @message.sender_id = current_user.id
+    @message.recipient_id = @post.user_id
+    redirect :"posts/show"
+
   end
 
   get '/messages/new' do
@@ -15,7 +18,6 @@ class MessagesController < ApplicationController
       redirect "/login" #redirect if not
     else
       erb :"/messages/new" #render new message form if they are logged in
-      puts params
     end
   end
 
