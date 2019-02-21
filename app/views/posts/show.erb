@@ -3,11 +3,11 @@
 
 <p>Post Title: <%= @post.title %> </p>
 <p>Post Content: <%= @post.content %> </p>
-<p>Post Author: <%= @user.email %> </p>
+<p>Post Author: <%= @author.email %> </p>
 
 <a href="/posts/<%= @post.id %>/edit">Edit this post</a>
 
-<a href="/messages/new">Send a message to the author of this post</a>
+<a href="/messages/new/<%= @author.id %>">Send a message to the author of this post</a>
 
 <form action="/posts/<%= @post.id %>/delete" method="post">
   <input id="hidden" type="hidden" name="_method" value="delete">

@@ -23,7 +23,7 @@ class PostsController < ApplicationController
 
   get '/posts/:id' do
     @post = Post.find_by_id(params[:id])
-    @user = User.find_by_id(@post.user_id)
+    @author = User.find_by_id(@post.user_id)
     erb :"posts/show"
   end
 
