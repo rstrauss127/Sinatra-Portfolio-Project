@@ -1,8 +1,8 @@
 <h1>form for a new message</h1>
 <form action="/messages/new" method="post">
 
-  <label for="recipient"></label>
-  <input type="text" name="recipient" id="recipient" value="<%= @author.email %>">
+
+  <input type="hidden" id="recipient_id" value="<%= @author.id %>">
 
   <label for="message_content">Message Content</label>
   <input type="text" name="message_content" id="message_content">
