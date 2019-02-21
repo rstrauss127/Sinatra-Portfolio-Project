@@ -1,7 +1,9 @@
 <h1>List of all messages </h1>
 <% @messages.each do |message| %>
-
-  <p>Message Content: <%= message.message_content %> </p>
-
-  <hr>
+  <% if message.sender_id == current_user.id || message.recipient_id == current_user.id %>
+    <p>Message Content: <%= message.message_content %> </p>
+    <p>Message Author <%= message.sender_id %> </p>
+    <p>Message Recipient <%= message.recipient_id %> </p>
+    <hr>
+  <% end %>
 <% end %>

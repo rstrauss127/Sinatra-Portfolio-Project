@@ -2,7 +2,8 @@
 <form action="/messages/new" method="post">
 
 
-  <input type="hidden" id="recipient_id" value="<%= @author.id %>">
+  <input type="hidden" name="recipient_id" id="recipient_id" value=<%= @author.id %>>
+  <input type="hidden" name="sender_id" id="sender_id" value=<%= @current_user.id %>>
 
   <label for="message_content">Message Content</label>
   <input type="text" name="message_content" id="message_content">
