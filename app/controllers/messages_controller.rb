@@ -1,7 +1,8 @@
 class MessagesController < ApplicationController
 
-  get '/messages/' do
-    #show messages
+  get '/messages' do
+    @messages = Message.all
+    erb :"/messages/index"
   end
 
   post '/messages/new' do
@@ -16,7 +17,6 @@ class MessagesController < ApplicationController
       redirect "/login" #redirect if not
     else
       @author = User.find_by_id(params[:id])
-
       erb :"/messages/new" #render new message form if they are logged in
     end
   end
