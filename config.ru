@@ -11,6 +11,7 @@ end
 #starting application
 use Rack::MethodOverride#mount controller
 use PostsController
+use StudySessionsController
 use UsersController
 use SessionsController
 use MessagesController

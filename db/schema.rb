@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_17_194302) do
+ActiveRecord::Schema.define(version: 2019_02_24_230555) do
 
   create_table "messages", force: :cascade do |t|
     t.integer "sender_id"
@@ -24,6 +24,12 @@ ActiveRecord::Schema.define(version: 2019_02_17_194302) do
     t.string "title"
     t.text "content"
     t.integer "user_id"
+  end
+
+  create_table "study_sessions", force: :cascade do |t|
+    t.integer "length"
+    t.string "topic"
+    t.text "description"
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,0 +1,3 @@
+class StudySessionsController < ApplicationController
+
+end
