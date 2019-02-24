@@ -10,15 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_24_174821) do
-
-  create_table "activities", force: :cascade do |t|
-    t.string "name"
-    t.string "type"
-    t.string "link"
-    t.text "description"
-    t.string "location"
-  end
+ActiveRecord::Schema.define(version: 2019_02_17_194302) do
 
   create_table "messages", force: :cascade do |t|
     t.integer "sender_id"
