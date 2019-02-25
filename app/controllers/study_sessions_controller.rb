@@ -1,6 +1,7 @@
 class StudySessionsController < ApplicationController
   get '/study_sessions' do
-
+    @study_sessions = StudySession.all
+    erb :"study_sessions/index"
   end
 
   post '/study_sessions' do

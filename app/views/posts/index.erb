@@ -1,13 +1,15 @@
 <a href="/messages">View your messages</a>
+<a href="/study_sessions">View your progress</a>
 
-<h1>Vacation Listings</h1>
-
-<% @posts.each do |post| %>
-  <p>Post Title: <%= post.title %> </p>
-  <p>Post Content: <%= post.content %> </p>
-  <p>Link: <a href="/posts/<%= post.id %>">View <%= post.title %></a></p>
-  <hr>
-<% end %>
+<h1>Post about a study session you had or one you want to create.</h1>
+<div>
+  <% @posts.each do |post| %>
+    <p>Post Title: <%= post.title %> </p>
+    <p>Post Content: <%= post.content %> </p>
+    <p>Link: <a href="/posts/<%= post.id %>">View <%= post.title %></a></p>
+    <hr>
+  <% end %>
+</div>
 
 <a href="/posts/new">Create a new Post</a>
 <a href="/study_sessions/new">Create a new Study Session</a>
