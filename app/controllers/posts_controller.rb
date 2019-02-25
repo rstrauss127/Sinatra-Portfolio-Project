@@ -18,7 +18,6 @@ class PostsController < ApplicationController
     @post.user_id = current_user.id
     @post.save
     redirect "posts/#{@post.id}"
-    puts params
   end
 
   get '/posts/:id' do
