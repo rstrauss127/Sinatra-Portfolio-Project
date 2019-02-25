@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_02_24_230555) do
     t.integer "length"
     t.string "topic"
     t.text "description"
+    t.integer "user_id"
   end
 
   create_table "users", force: :cascade do |t|
