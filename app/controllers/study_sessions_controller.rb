@@ -1,13 +1,17 @@
 class StudySessionsController < ApplicationController
   get '/study_sessions' do
-    study_sessions = StudySession.all
-    @sum = 0
-    study_sessions.each do |session|
-      if session.user_id == current_user.id
-        @sum += session.length
+    if !logged_in?
+      redirect "/login"
+    else
+      study_sessions = StudySession.all
+      @sum = 0
+      study_sessions.each do |session|
+        if session.user_id == current_user.id
+          @sum += session.length
+        end
       end
+      erb :"study_sessions/index"
     end
-    erb :"study_sessions/index"
   end
 
   post '/study_sessions' do
