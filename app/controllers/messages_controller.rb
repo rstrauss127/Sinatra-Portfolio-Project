@@ -1,8 +1,12 @@
 class MessagesController < ApplicationController
 
   get '/messages' do
-    @messages = Message.all
-    erb :"/messages/index"
+    if !logged_in?#checking if logged in
+      redirect "/login" #redirect if not
+    else
+      @messages = Message.all
+      erb :"/messages/index"
+    end
   end
 
   post '/messages/new' do
