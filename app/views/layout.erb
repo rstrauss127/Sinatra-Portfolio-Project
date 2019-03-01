@@ -5,7 +5,12 @@
   <body>
     <header>
        <a href="/posts">All Posts</a>
-       
+       <% if logged_in? %>
+         <a href="/logout">Logout</a>
+        <% else %>
+          <a href="/login">Login </a> Or
+          <a href="/signup"> Signup</a>
+       <% end %>
     </header>
     <%= yield %>
   </body>

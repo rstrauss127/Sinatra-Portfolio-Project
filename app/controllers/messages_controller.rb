@@ -19,7 +19,7 @@ class MessagesController < ApplicationController
       redirect "/login" #redirect if not
     else
       @author = User.find_by_id(params[:id])
-      @current_user = current_user
+      @current_user = current_user#shouldnt be neccessaery
       erb :"/messages/new" #render new message form if they are logged in
     end
   end
