@@ -1,0 +1,14 @@
+<form action="/study_sessions/<%= @study_session.id %>" method="post">
+  <input id="hidden" type="hidden" name="_method" value="patch">
+
+  <label for="topic">Change Topic</label>
+  <input type="text" name="topic" id="topic">
+
+  <label for="length">Change how long did you study for? Enter in minutes</label>
+  <input type="text" name="length" id="length">
+
+  <label for="description">Change description?</label>
+  <input type="text" name="description" id=description"">
+  
+  <input type="submit" value="Submit">
+</form>
