@@ -1,9 +1,10 @@
+<a href="/study_sessions/new">Create a new study_session</a>
 <h1>See what others have studied</h1>
 <% @study_sessions.each do |session| %>
-  <p>Length <%=session.length %></p>
-  <p>Topic <%=session.topic %></p>
-  <p>Description <%=session.description %></p>
-  <p>User <%=session.user_id %></p>
+  <p>Length: <%=session.length %> Minutes</p>
+  <p>Topic: <%=session.topic %></p>
+  <p>Description: <%=session.description %></p>
+  <p>User: <%=session.user_id %></p>
   <p>Link: <a href="/study_sessions/<%= session.id %>">View</a></p>
   <hr>
 <% end %>

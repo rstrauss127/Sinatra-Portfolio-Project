@@ -3,15 +3,15 @@
 Specs:
 - [x] Use Sinatra to build the app
 - [x] Use ActiveRecord for storing information in a database
-- [x] Include more than one model class (e.g. User, Post, Category)
-        User & Post class
+- [x] Include more than one model class (e.g. User, Post, Category) User, Post, Message, StudySession
 - [x] Include at least one has_many relationship on your User model (e.g. User has_many Posts)
-        User has_many Posts
+        User has_many StudySessions
 - [x] Include at least one belongs_to relationship on another model (e.g. Post belongs_to User)
-        Post belongs_to User
+        StudySessions belong to User
 - [x] Include user accounts with unique login attribute (username or email)
         created user account with unique email & password
 - [x] Ensure that the belongs_to resource has routes for Creating, Reading, Updating and Destroying
+      StudySessions can be created, individually shown, updated, destroyed
 - [x] Ensure that users can't modify content created by other users
         if post = current_user.posts.find_by(params[:id])
 - [x] Include user input validations
