@@ -29,9 +29,9 @@ class PostsController < ApplicationController
   get '/posts/:id/edit' do
     if !logged_in?
       redirect "/login"
-    else
-      if post = current_user.posts.find_by(params[:id])#only edit posts the user has authored
-        @post = Post.find_by_id(params[:id])
+    else#only edit posts the user has authored
+      @post = Post.find_by_id(params[:id])
+      if @post.user_id == current_user.id
         erb :"posts/edit"
       else
         redirect '/posts'
