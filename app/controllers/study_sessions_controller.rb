@@ -42,4 +42,14 @@ class StudySessionsController < ApplicationController
     @study_session.save
     redirect to "/study_sessions/#{@study_session.id}"
   end
+
+  delete '/study_sessions/:id/delete' do
+    @study_session = StudySession.find_by_id(params[:id])
+    if @study_session.user_id == current_user.id
+      @study_session.delete
+      redirect '/study_sessions'
+    else
+      redirect '/study_sessions'
+    end
+  end
 end

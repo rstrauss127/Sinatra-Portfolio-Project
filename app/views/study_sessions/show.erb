@@ -4,3 +4,8 @@
 <p><%=@study_session.user_id%></p>
 
 <a href="/study_sessions/<%= @study_session.id %>/edit">Edit this post</a> <br>
+
+<form action="/study_sessions/<%= @study_session.id %>/delete" method="post">
+  <input id="hidden" type="hidden" name="_method" value="delete">
+  <input type="submit" value="delete">
+</form>
