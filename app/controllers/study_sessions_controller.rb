@@ -6,10 +6,10 @@ class StudySessionsController < ApplicationController
     else
       study_sessions = StudySession.all
       @sum = 0
+      @topics = 0
       study_sessions.each do |session|
-        if session.user_id == current_user.id
-          @sum += session.length
-        end
+        @sum += session.length
+        @topics += 1
       end
       erb :"study_sessions/index"
     end
