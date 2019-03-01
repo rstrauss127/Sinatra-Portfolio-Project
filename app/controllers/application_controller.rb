@@ -11,19 +11,17 @@ class ApplicationController < Sinatra::Base
     erb :"sessions/index"
   end
 
-
   helpers do
-
     def logged_in?
       !!current_user
     end
 
     def login(email, password)
       user = User.find_by(:email => email)
-      if user && user.authenticate(password)  #check if a user with this email actually exists and we can autheticate this user witht his password
-        session[:email] = user.email      #if so, set the session
+      if user && user.authenticate(password)
+        session[:email] = user.email
       else
-        redirect '/login'#otherwise, return false or redirext '/login'
+        redirect '/login'
       end
     end
 
@@ -34,7 +32,6 @@ class ApplicationController < Sinatra::Base
     def current_user
       @current_user ||= User.find_by(:email => session[:email]) if session[:email] #if the session has an email and we can find the user by that email
     end
-
   end#end of helper methods
 
 end

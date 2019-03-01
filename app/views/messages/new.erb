@@ -1,7 +1,6 @@
 <h1>form for a new message</h1>
 <form action="/messages/new" method="post">
 
-
   <input type="hidden" name="recipient_id" id="recipient_id" value=<%= @author.id %>>
   <input type="hidden" name="sender_id" id="sender_id" value=<%= @current_user.id %>>
 

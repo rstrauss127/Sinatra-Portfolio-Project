@@ -1,4 +1,5 @@
 class StudySessionsController < ApplicationController
+
   get '/study_sessions' do
     if !logged_in?
       redirect "/login"
@@ -20,11 +21,11 @@ class StudySessionsController < ApplicationController
   end
 
   get '/study_sessions/new' do
-    if !logged_in?#checking if logged in
-      redirect "/login" #redirect if not
+    if !logged_in?
+      redirect "/login"
     else
       @current_user = current_user
-      erb :"/study_sessions/new" #render new post form if they are logged in
+      erb :"/study_sessions/new"
     end
   end
 end

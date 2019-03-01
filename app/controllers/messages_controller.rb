@@ -1,8 +1,8 @@
 class MessagesController < ApplicationController
 
   get '/messages' do
-    if !logged_in?#checking if logged in
-      redirect "/login" #redirect if not
+    if !logged_in?
+      redirect "/login"
     else
       @messages = Message.all
       erb :"/messages/index"
@@ -15,12 +15,13 @@ class MessagesController < ApplicationController
   end
 
   get '/messages/new/:id' do
-    if !logged_in?#checking if logged in
-      redirect "/login" #redirect if not
+    if !logged_in?
+      redirect "/login"
     else
       @author = User.find_by_id(params[:id])
       @current_user = current_user#shouldnt be neccessaery
-      erb :"/messages/new" #render new message form if they are logged in
+      erb :"/messages/new"
     end
   end
+  
 end

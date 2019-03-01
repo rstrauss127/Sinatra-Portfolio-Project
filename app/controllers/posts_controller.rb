@@ -1,19 +1,19 @@
 class PostsController < ApplicationController
 
-  get '/posts' do #posts index action
+  get '/posts' do
     @posts = Post.all
     erb :"/posts/index"
   end
 
-  get '/posts/new' do#new
-    if !logged_in?#checking if logged in
-      redirect "/login" #redirect if not
+  get '/posts/new' do
+    if !logged_in?
+      redirect "/login"
     else
-      erb :"/posts/new" #render new post form if they are logged in
+      erb :"/posts/new"
     end
   end
 
-  post '/posts' do#create
+  post '/posts' do
     @post = Post.create(params)
     @post.user_id = current_user.id
     @post.save
@@ -26,20 +26,20 @@ class PostsController < ApplicationController
     erb :"posts/show"
   end
 
-  get '/posts/:id/edit' do #edit form
-    if !logged_in?#checking if logged in
-      redirect "/login" #redirect if not
+  get '/posts/:id/edit' do
+    if !logged_in?
+      redirect "/login"
     else
       if post = current_user.posts.find_by(params[:id])#only edit posts the user has authored
         @post = Post.find_by_id(params[:id])
-        erb :"posts/edit"  #rendering if they are
+        erb :"posts/edit"
       else
         redirect '/posts'
       end
     end
   end
 
-  patch '/posts/:id' do
+  patch '/posts/:id' do #use update
     @post = Post.find_by_id(params[:id])
     @post.title = params[:title]
     @post.content = params[:content]
@@ -47,18 +47,18 @@ class PostsController < ApplicationController
     redirect to "/posts/#{@post.id}"
   end
 
-
   delete '/posts/:id/delete' do
-    if !logged_in?#checking if logged in
-      redirect "/login" #redirect if not
+    if !logged_in?
+      redirect "/login"
     else
-      if post = current_user.posts.find_by(params[:id])#only delete posts the user has authored
+      if post = current_user.posts.find_by(params[:id])
         @post = Post.find_by_id(params[:id])
         @post.delete
-        redirect to "/posts"  #rendering if they are
+        redirect to "/posts"
       else
         redirect '/posts'
       end
     end
   end
+
 end
